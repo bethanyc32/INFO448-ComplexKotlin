@@ -14,7 +14,6 @@ val fizzbuzz : (IntRange) -> String = { numRange -> numRange.map {
         it % 3 == 0 && it % 5 == 0 -> "FIZZBUZZ"
         it % 3 == 0 -> "FIZZ"
         it % 5 == 0 -> "BUZZ"
-        // it % 7 == 0 -> "DOH"
         else -> ""
     }
 }.fold("", { acc, elem -> acc + elem })
@@ -43,14 +42,6 @@ fun process(message: String, block: (String) -> String): String {
     return ">>> ${message}: {" + block(message) + "}"
 }
 
-// process ("FOO") {"BAR"}
-// ${message} = FOO
-// block("FOO") = BAR
-// ">>> ${message}: {"
-// block(message)
-// "}"
-// >>> FOO: {BAR}
-
 // Create r1 as a lambda that calls process() with message "FOO"
 // and a block that returns "BAR"
 val r1 = { process("FOO") {"BAR"} }
@@ -63,6 +54,10 @@ val r2 = { process("FOO") {r2_message.toUpperCase() + r2_message.toUpperCase() +
 
 
 // write an enum-based state machine between talking and thinking
+// Extra Credit: Seneca the Younger is associated with the school of Stoicism that teaches the philosophical
+//               idea that life and success in it centers around having virtues of focusing on logic and
+//               reasonings opposed to passion (as that was thought to distract a person from being successful).
+
 enum class Philosopher {
     THINKING {
         override fun signal() = TALKING
